@@ -1,12 +1,18 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        n = len(nums)
-        d={}
-        s=list(set(nums))
-        for i in s:
-            d[nums.count(i)]=i
-        c=max(d.keys())
-        if c>(n//2):
-            return d[c]
-       
-        
+        count=0
+        for i in range(len(nums)):
+            if count==0:
+                count=1
+                el=nums[i]
+            elif nums[i]==el:
+                count+=1
+            else:
+                count-=1
+        c1=0
+        for i in range(len(nums)):
+            if nums[i]==el:
+                c1+=1
+        if c1>(len(nums)//2):
+            return el
+        return -1
