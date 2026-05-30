@@ -1,4 +1,4 @@
-class Solution:
+'''class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
         output=""
         mini=[]
@@ -15,4 +15,18 @@ class Solution:
                     return output
             if count==len(strs)-1:
                 output+=strs[0][j]
-        return output
+        return output'''
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        if not strs:
+            return ''
+        strs.sort()
+        first=strs[0]
+        last=strs[len(strs)-1]
+        ans=[]
+        for i in range(min(len(first),len(last))):
+            if first[i]!=last[i]:
+                return ''.join(ans)
+            ans.append(first[i])
+        return ''.join(ans)
+
