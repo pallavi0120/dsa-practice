@@ -14,4 +14,5 @@ class Solution:
         reverse(nums,n-k,n-1)
         reverse(nums,0,n-1)
         return nums
-        
+        #if left rotate, we reverse first k elements
+        #if right rotate, we reverse first n-k elements
